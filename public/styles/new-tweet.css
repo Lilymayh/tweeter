@@ -1,0 +1,31 @@
+.container {
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	align-items: center;
+}
+
+.new-tweet label {
+	border-bottom: 3px solid black;
+	padding-top: 5px;
+	margin-bottom: 10px;
+	font-size: 1.2em;
+}
+
+.new-tweet button[type="submit"] {
+	font-family: 'Bungee', sans-serif;
+	background-color: blue;
+	color: white;  
+	}
+
+
+.new-tweet div {
+	display: flex;
+	padding-top: 15px;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.counter {
+	font-family: 'Bungee', sans-serif;
+}
