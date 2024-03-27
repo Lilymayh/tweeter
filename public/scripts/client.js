@@ -20,12 +20,11 @@ const renderTweets = function(tweets) {
   tweets.forEach(tweet => {
 		const $tweet = createTweetElement(tweet)
 
-		$('.tweets-container').prepend($tweet)
+		$('.tweets').prepend($tweet)
 	})
 }
 
 const createTweetElement = function(tweet) {
-  let $tweet = $('<article>').addClass('tweet')
 	//const createdAt = new Date(tweet.created_at) -> ahead of compass
 
 	const html = `
@@ -37,7 +36,7 @@ const createTweetElement = function(tweet) {
 		</header>
 		<p>${tweet.content.text}</p>
 		<footer>
-			<span>${createdAt}</span>
+			<span>10 Day Ago</span>
 			<div class="icons">
 				<i class="fa-solid fa-flag"></i>
 				<i class="fa-solid fa-retweet"></i>
@@ -46,7 +45,7 @@ const createTweetElement = function(tweet) {
 		</footer>
 	</article>
 `;
-  return html;
+  return $(html);
 }
 
-renderTweets(data);
+renderTweets([data]);
