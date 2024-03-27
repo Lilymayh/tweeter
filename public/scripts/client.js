@@ -20,17 +20,17 @@ const renderTweets = function(tweets) {
   tweets.forEach(tweet => {
 		const $tweet = createTweetElement(tweet)
 
-		$('#tweets-container').append($tweet)
+		$('#tweets-container').prepend($tweet)
 	})
 }
 
 const createTweetElement = function(tweet) {
   let $tweet = $('<article>').addClass('tweet')
-	const createdAt = new Date(tweet.created_at)
+	//const createdAt = new Date(tweet.created_at) -> ahead of compass
 
 	$tweet.append(`<header><img src="${tweet.user.avatars}"><h3>${tweet.user.name}</h3><span>${tweet.user.handle}</span></header>`);
   $tweet.append(`<p>${tweet.content.text}</p>`);
-  $tweet.append(`<footer><span>${createdAt.toDateString()}</span></footer>`);
+  //$tweet.append(`<footer><span>${createdAt.toDateString()}</span></footer>`);
 
   return $tweet;
 }
