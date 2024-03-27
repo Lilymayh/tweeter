@@ -12,14 +12,19 @@
 	font-size: 1.2em;
 }
 
+.new-tweet textarea {
+	margin-top: 2px;
+}
+
 .new-tweet button[type="submit"] {
 	font-family: 'Bungee', sans-serif;
 	background-color: blue;
-	color: white;  
-	}
+	color: white;
+	cursor: pointer;
+}
 
 
-.new-tweet div {
+footer {
 	display: flex;
 	padding-top: 15px;
 	justify-content: space-between;
@@ -28,4 +33,8 @@
 
 .counter {
 	font-family: 'Bungee', sans-serif;
+}
+
+.countChars {
+	color: red
 }
