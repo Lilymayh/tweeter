@@ -1,15 +1,3 @@
-const data = {
-	"user": {
-		"name": "Newton",
-		"avatars": "https://i.imgur.com/73hZDYK.png",
-		"handle": "@SirIsaac"
-	},
-	"content": {
-		"text": "If I have seen further it is by standing on the shoulders of giants"
-	},
-	"created_at": 1461116232227
-};
-
 const renderTweets = function(tweets) {
 	tweets.forEach(tweet => {
 		const $tweet = createTweetElement(tweet);
@@ -19,7 +7,8 @@ const renderTweets = function(tweets) {
 };
 
 const createTweetElement = function(tweet) {
-	//const createdAt = new Date(tweet.created_at) -> ahead of compass
+
+	const timeAgo = timeago.format(tweet.created_at);
 
 	const html = `
 	<article class="tweet">
@@ -30,7 +19,7 @@ const createTweetElement = function(tweet) {
 		</header>
 		<p>${tweet.content.text}</p>
 		<footer>
-			<span>10 Day Ago</span>
+			<span> class="time">${timeAgo}</span>
 			<div class="icons">
 				<i class="fa-solid fa-flag"></i>
 				<i class="fa-solid fa-retweet"></i>
@@ -51,10 +40,27 @@ $('.tweets').on('submit', function(eventObj) {
 		.done((form) => {
 			console.log('Form submitted:', form);
 		})
-		.fail((status, error) => {
+		.fail((jqXHR, status, error) => {
 			console.error('Error submitting form:', status, error);
 		});
 });
 
 
-renderTweets([data]);
+const loadTweets = function(tweet) {
+	$.ajax('http://localhost:8080/tweets', { method: 'GET' })
+		.then(function(tweets) {
+
+		})
+		.fail(function(jqXHR, status, error) {
+			console.error(status, error);
+		});
+};
+tweets.forEach(function(tweet) {
+	const $tweet = createTweetElement(tweet);
+	const timeAgo = timeago.format(tweet);
+
+	$tweet.find('.time').text(timeAgo);
+	$('.tweets-container').append($tweet);
+})
+
+
