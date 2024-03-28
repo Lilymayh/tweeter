@@ -33,7 +33,7 @@ const createTweetElement = function(tweet) {
 
 $('.tweets').on('submit', function(eventObj) {
 	eventObj.preventDefault();
-	formData = $(this).serialize();
+	const formData = $(this).serialize();
 
 	const tweet = $('.tweet-text').val().trim();
 
@@ -44,8 +44,7 @@ $('.tweets').on('submit', function(eventObj) {
 	//AJAX post request
 	$.post('/tweets', formData)
 		.done((form) => {
-			console.log('Form submitted:', form);
-			loadTweets();
+			loadTweets(form);
 		})
 		.fail((jqXHR, status, error) => {
 			console.error('Error submitting form:', status, error);
@@ -56,7 +55,6 @@ $('.tweets').on('submit', function(eventObj) {
 const loadTweets = function(tweet) {
 	$.ajax('http://localhost:8080/tweets', { method: 'GET' })
 		.then(function(tweets) {
-			$('.tweets').empty();
 			renderTweets(tweets);
 
 		})
@@ -65,6 +63,7 @@ const loadTweets = function(tweet) {
 		});
 };
 
+//function to throw an error if tweet has invalid input.
 const isTweetValid = function(tweet) {
 	if (tweet === "") {
 			$('.error-message').text('Tweet can not be blank');
