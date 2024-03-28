@@ -51,6 +51,7 @@ $('.tweets').on('submit', function(eventObj) {
 	$.post('/tweets', formData)
 		.done((form) => {
 			console.log('Form submitted:', form);
+			loadTweets();
 		})
 		.fail((jqXHR, status, error) => {
 			console.error('Error submitting form:', status, error);
