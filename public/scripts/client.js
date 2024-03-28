@@ -17,7 +17,7 @@ const createTweetElement = function(tweet) {
 			<h3>${tweet.user.name}</h3>
 			<span>${tweet.user.handle}</span>
 		</header>
-		<p>${tweet.content.text}</p>
+		<p>${$('<div>').text(tweet.content.text).html()}</p>
 		<footer>
 			<span class="time">${timeAgo}</span>
 			<div class="icons">
@@ -37,13 +37,7 @@ $('.tweets').on('submit', function(eventObj) {
 
 	const tweet = $('.tweet-text').val().trim();
 
-	if (tweet === "") {
-		alert('Tweet must contain content');
-		return;
-	}
-
-	if (tweet.length > 140) {
-		alert('Error: cAnnot exceed 140 characters!');
+	if(!isTweetValid(tweet)) {
 		return;
 	}
 
@@ -62,10 +56,27 @@ $('.tweets').on('submit', function(eventObj) {
 const loadTweets = function(tweet) {
 	$.ajax('http://localhost:8080/tweets', { method: 'GET' })
 		.then(function(tweets) {
+			$('.tweets').empty();
 			renderTweets(tweets);
 
 		})
 		.fail(function(jqXHR, status, error) {
 			console.error(status, error);
 		});
+};
+
+const isTweetValid = function(tweet) {
+	if (tweet === "") {
+			$('.error-message').text('Tweet can not be blank');
+			$('.error-message').show()
+			return false;
+	}
+
+	if (tweet.length > 140) {
+			$('.error-message').text('Please keep your tweeting to under 140 characters!');
+			$('.error-message').show()
+			return false;
+	}
+
+	return true;
 };

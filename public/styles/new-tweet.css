@@ -38,3 +38,15 @@ footer {
 .negativeCount {
 	color: red
 }
+
+/* error messages for invalid tweets */
+.error-message {
+	display: none;
+	background-color: #f898b2;
+	color: #fc1c32e1;
+	border: 1px solid #fc1c32e1;
+	padding: 10px;
+	border-radius: 5px;
+	margin: 5px;
+	font-size: 12px;
+}
