@@ -35,6 +35,18 @@ $('.tweets').on('submit', function(eventObj) {
 	eventObj.preventDefault();
 	formData = $(this).serialize();
 
+	const tweet = $('.tweet-text').val().trim();
+
+	if (tweet === "") {
+		alert('Tweet must contain content');
+		return;
+	}
+
+	if (tweet.length > 140) {
+		alert('Error: cAnnot exceed 140 characters!');
+		return;
+	}
+
 	//AJAX post request
 	$.post('/tweets', formData)
 		.done((form) => {
@@ -56,21 +68,3 @@ const loadTweets = function(tweet) {
 			console.error(status, error);
 		});
 };
-
-$('tweets').on('submit', function(event) {
-	event.preventDefault();
-
-	const tweet = $('.tweet-text').val();
-
-	if (tweet === "") {
-		$('.tweet-error').text('Tweet must contain content');
-		return;
-	}
-
-	if (tweet.length > 140) {
-		$('.tweet-error').text('Error: cAnnot exceed 140 characters!');
-		return;
-	}
-
-
-});
