@@ -38,7 +38,7 @@
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
   <!-- App JS -->
-  <script type="text/javascript" src="/scripts/client.js"></script>
+  <script defer type="text/javascript" src="/scripts/client.js"></script>
   <script type="text/javascript" src="/scripts/composer-char-counter.js"></script>
 
 </head>
@@ -52,42 +52,35 @@
       <i class="fa-solid fa-angles-down" style="color: #eb0a0a;"></i>
     </div>
   </nav>
+
+  <!-- profile -->
+  <header class="profile">
+    <div>
+      <img src="/images/profile-hex.png">
+    </div>
+    <br>
+    <div>
+      <h2>Lily</h2>
+    </div>
+  </header>
+
+
+  <main class="container">
+    <section class="new-tweet">
+      <form class="tweet-form" method="POST" action="/tweets">
+        <label for="tweet-text">What are you humming about?</label>
+        <textarea class="tweetform" name="text" id="tweet-text" rows="1"></textarea>
+        <span class="error-message"></span>
+        <footer>
+          <button type="submit">Tweet</button>
+          <output name="counter" class="counter" for="tweet-text">140</output>
+        </footer>
+      </form>
+    </section>
+  </main>
   <!-- posted tweet -->
   <section class="tweets">
-
-      <!-- profile -->
-      <header>
-        <div>
-          <img src="/images/profile-hex.png">
-        </div>
-        <br>
-        <div>
-          <h2>Lily</h2>
-        </div>
-      </header>
-
-      <!-- Page-specific (main) content here -->
-      <main class="container">
-        <section class="new-tweet">
-          <form class="tweet-form" method="POST" action="/tweets">
-            <label for="tweet-text">What are you humming about?</label>
-            <textarea class="tweetform" name="tweet-text" id="tweet-text" rows="1"></textarea>
-            <span class="error-message"></span>
-            <footer>
-              <button type="submit">Tweet</button>
-              <output name="counter" class="counter" for="tweet-text">140</output>
-            </footer>
-          </form>
-        </section>
-      </main>
-
-      <!-- posted tweet -->
-      <section class="tweets">
-        <script type="text/javascript" src="/scripts/client.js"></script>
-      </section>
-    </body>
-
-    </html>
+  </section>
 </body>
 
 </html>

@@ -31,18 +31,18 @@ const createTweetElement = function(tweet) {
 	return $(html);
 };
 
-$('.tweets').on('submit', function(eventObj) {
+$('.tweet-form').on('submit', function(eventObj) {
 	eventObj.preventDefault();
 	const formData = $(this).serialize();
 
-	const tweet = $('.tweet-text').val().trim();
+	const tweet = $('#tweet-text').val().trim();
 
 	if(!isTweetValid(tweet)) {
 		return;
 	}
-
+	console.log(formData)
 	//AJAX post request
-	$.post('/tweets', formData)
+	$.post('http://localhost:8080/tweets', formData)
 		.done((form) => {
 			loadTweets(form);
 		})
