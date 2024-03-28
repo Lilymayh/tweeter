@@ -80,3 +80,7 @@ const isTweetValid = function(tweet) {
 
 	return true;
 };
+
+$('.tweet-text').on('keyup', function() {
+  $('.error-message').hide();
+});
