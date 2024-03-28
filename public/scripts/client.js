@@ -19,7 +19,7 @@ const createTweetElement = function(tweet) {
 		</header>
 		<p>${tweet.content.text}</p>
 		<footer>
-			<span> class="time">${timeAgo}</span>
+			<span class="time">${timeAgo}</span>
 			<div class="icons">
 				<i class="fa-solid fa-flag"></i>
 				<i class="fa-solid fa-retweet"></i>
@@ -36,7 +36,7 @@ $('.tweets').on('submit', function(eventObj) {
 	formData = $(this).serialize();
 
 	//AJAX post request
-	$.post('/submit-url', formData)
+	$.post('/tweets', formData)
 		.done((form) => {
 			console.log('Form submitted:', form);
 		})
@@ -49,18 +49,28 @@ $('.tweets').on('submit', function(eventObj) {
 const loadTweets = function(tweet) {
 	$.ajax('http://localhost:8080/tweets', { method: 'GET' })
 		.then(function(tweets) {
+			renderTweets(tweets);
 
 		})
 		.fail(function(jqXHR, status, error) {
 			console.error(status, error);
 		});
 };
-tweets.forEach(function(tweet) {
-	const $tweet = createTweetElement(tweet);
-	const timeAgo = timeago.format(tweet);
 
-	$tweet.find('.time').text(timeAgo);
-	$('.tweets-container').append($tweet);
-})
+$('tweets').on('submit', function(event) {
+	event.preventDefault();
+
+	const tweet = $('.tweet-text').val();
+
+	if (tweet === "") {
+		$('.tweet-error').text('Tweet must contain content');
+		return;
+	}
+
+	if (tweet.length > 140) {
+		$('.tweet-error').text('Error: cAnnot exceed 140 characters!');
+		return;
+	}
 
 
+});
