@@ -15,8 +15,8 @@ html {
  */
 
 body {
-  color: #545149;
-  background-color: #f4f1ec;
+  color: black;
+  background-color: #dcf4fd;;
   font-size: 24px;
 }
 
@@ -35,5 +35,27 @@ nav span {
 .container {
   width: 90%;
   margin: 0 auto;
-  background-color: inherit;
+  background-color: transparent;
+}
+
+/* phone */
+@media only screen and (min-width: 360px) {
+  .new-tweet {
+  display: flex;
+  
+  }
+}
+
+/* tablet */
+@media only screen and (min-width: 768px) {
+  .profile {
+    display: flex;
+    flex-direction: column;
+    float: right;
+  }
+}
+
+/* desktop*/
+@media only screen and (min-width: 1024px) {
+
 }

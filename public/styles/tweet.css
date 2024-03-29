@@ -1,18 +1,62 @@
 article {
-	border: 4px solid black;
+	border: 4px solid #008ECC;
+	border-radius: 10px;
 	margin: 5em;
-	background-color: #f4f1ec;
+	background-color: white;
+	color: black;
+}
+
+.tweet:hover {
+	box-shadow: 3px 3px 6px blue;
 }
 
 p {
-	margin-left: 20px;	
+	display: flex; 
+	width: 95%;
+	border-bottom: 3px solid #008ECC;
+	padding-bottom: 30px;
+	padding-left: 20px;
+	margin-left: 2.5%;
+	font-size: 120%;
 }
 
-.postedTweet footer {
+.tweet header {
 	display: flex;
-	justify-content: space-around;
-	border: 2px solid black;
-	border-radius: 5px;
+	justify-content: space-between;
 	padding: 20px;
-	margin: 20px;
+	margin: 10px;
 }
+
+.tweet .avatar {
+	display: flex;
+	align-items: start;
+}
+
+.tweet .avatar img {
+	margin-right: 20px;
+}
+
+header span {
+	color: #008ECC
+}
+
+.tweet footer {
+	display: flex;
+	justify-content: space-between;
+	padding: 50px;
+	padding-top: 0;
+	font-size: 70%;
+}
+
+.icons .fa-heart:hover{
+	color: #f898b2;
+}
+
+.icons i {
+	margin-right: 10px;
+}
+
+.icons i:hover {
+	color: gold;
+}
+

@@ -22,11 +22,16 @@
 
 .new-tweet button[type="submit"] {
 	font-family: 'Bungee', sans-serif;
-	background-color: blue;
+	background-color: #008ECC;
+	border-radius: 5px;
+	border: none;
 	color: white;
 	cursor: pointer;
 }
 
+.new-tweet button:hover {
+	box-shadow: 2px 2px 5px blue;
+}
 
 footer {
 	display: flex;

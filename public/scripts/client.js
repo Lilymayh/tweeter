@@ -1,4 +1,7 @@
 const renderTweets = function(tweets) {
+	const tweetsContainer = $('.tweets')
+	tweetsContainer.empty()
+
 	tweets.forEach(tweet => {
 		const $tweet = createTweetElement(tweet);
 
@@ -13,8 +16,10 @@ const createTweetElement = function(tweet) {
 	const html = `
 	<article class="tweet">
 		<header>
-			<img src="${tweet.user.avatars}" alt="User Avatar">
+		<div class="avatar">
+		<img src="${tweet.user.avatars}" alt="User Avatar">
 			<h3>${tweet.user.name}</h3>
+			</div>
 			<span>${tweet.user.handle}</span>
 		</header>
 		<p>${$('<div>').text(tweet.content.text).html()}</p>
@@ -24,7 +29,7 @@ const createTweetElement = function(tweet) {
 				<i class="fa-solid fa-flag"></i>
 				<i class="fa-solid fa-retweet"></i>
 				<i class="fa-solid fa-heart"></i>
-			</div>
+				</div>
 		</footer>
 	</article>
 `;
@@ -62,6 +67,8 @@ const loadTweets = function(tweet) {
 			console.error(status, error);
 		});
 };
+
+loadTweets()
 
 //function to throw an error if tweet has invalid input.
 const isTweetValid = function(tweet) {
