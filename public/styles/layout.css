@@ -6,7 +6,11 @@
 html {
   box-sizing: border-box;
 }
-*, *:before, *:after {
+
+
+*,
+*:before,
+*:after {
   box-sizing: inherit;
 }
 
@@ -16,7 +20,8 @@ html {
 
 body {
   color: black;
-  background-color: #dcf4fd;;
+  background-color: #dcf4fd;
+  ;
   font-size: 24px;
 }
 
@@ -32,30 +37,107 @@ nav span {
   font-family: 'Bungee', sans-serif
 }
 
-.container {
-  width: 90%;
-  margin: 0 auto;
-  background-color: transparent;
+.profile {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 2em;
+  margin-top: 40%;
+  background-color: rgba(4, 4, 4, 0.247); 
+  border-radius: 5%;
+  padding: 2em;
+  color: white;
+
 }
 
 /* phone */
-@media only screen and (min-width: 360px) {
-  .new-tweet {
-  display: flex;
-  
+@media only screen and (min-width: 320px) {
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+    align-items: center; 
+  }
+
+  .profile {
+    margin-top: 40%;
+    margin-bottom: 2em;
+    padding: 0.5em;
+    font-size: 0.6em;
+  }
+
+  .tweets-container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    font-size: 0.7em;
+    width: 95%;
+  }
+
+  nav {
+    font-size: 0.9rem;
   }
 }
 
-/* tablet */
 @media only screen and (min-width: 768px) {
+  
+  .container {
+    display: flex;
+    flex-direction: column; 
+    align-items: center; 
+    justify-content: center; 
+  }
+
   .profile {
+    margin-top: 25%;
+    padding-top: 2em;
+    font-size: 1em;
+  }
+
+  .tweets-container {
     display: flex;
     flex-direction: column;
-    float: right;
+    justify-content: center;
+    width: 85%;
+  }
+
+  nav {
+    font-size: 1.2rem;
   }
 }
 
 /* desktop*/
 @media only screen and (min-width: 1024px) {
+  body {
+    display: flex;
+    align-items: flex-start;
+    padding-top: 150px;
+  }
 
+  .container {
+    width: 60%;
+  }
+  /* .new-tweet {
+    display: flex;
+    align-items: center;
+    border: 2px solid black;
+    width: 30%;
+  } */
+
+  .profile {
+    width: 40%;
+    margin-top: 5%;
+  }
+
+  .tweets-container {
+    margin-top: 3em;
+    width: 95%;
+  } 
+
+  nav {
+    font-size: 2rem;
+  }
 }
+/* tablet */

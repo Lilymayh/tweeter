@@ -1,11 +1,11 @@
 const renderTweets = function(tweets) {
-	const tweetsContainer = $('.tweets')
+	const tweetsContainer = $('.tweets-container')
 	tweetsContainer.empty()
 
 	tweets.forEach(tweet => {
 		const $tweet = createTweetElement(tweet);
 
-		$('.tweets').prepend($tweet);
+		$('.tweets-container').prepend($tweet);
 	});
 };
 
@@ -24,7 +24,7 @@ const createTweetElement = function(tweet) {
 		</header>
 		<p>${$('<div>').text(tweet.content.text).html()}</p>
 		<footer>
-			<span class="time">${timeAgo}</span>
+			<div class="time">${timeAgo}</div>
 			<div class="icons">
 				<i class="fa-solid fa-flag"></i>
 				<i class="fa-solid fa-retweet"></i>
