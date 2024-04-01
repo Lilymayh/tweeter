@@ -2,6 +2,12 @@
 
 Tweeter is a simple, single-page Twitter clone, built with  HTML, CSS, JS, jQuery and AJAX for the front-end, and Node, Express for the back-end.
 
+## Screenshots
+
+!["Screenshot of layout on screens of min 1024px"](https://github.com/Lilymayh/tweeter/blob/master/docs/desktop_layout.png?raw=true)
+!["Screenshot of layout on screens of min 768px"](https://github.com/Lilymayh/tweeter/blob/master/docs/tablet_layout.png?raw=true)
+!["Screenshot of an error-message when submitting an invalid tweet"](https://github.com/Lilymayh/tweeter/blob/master/docs/tweet_error.png?raw=true)
+
 ## Getting Started
 
 1. [Create](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template) a new repository using this repository as a template.
