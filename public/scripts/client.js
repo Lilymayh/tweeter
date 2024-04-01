@@ -1,6 +1,6 @@
 const renderTweets = function(tweets) {
-	const tweetsContainer = $('.tweets-container')
-	tweetsContainer.empty()
+	const tweetsContainer = $('.tweets-container');
+	tweetsContainer.empty();
 
 	tweets.forEach(tweet => {
 		const $tweet = createTweetElement(tweet);
@@ -42,10 +42,10 @@ $('.tweet-form').on('submit', function(eventObj) {
 
 	const tweet = $('#tweet-text').val().trim();
 
-	if(!isTweetValid(tweet)) {
+	if (!isTweetValid(tweet)) {
 		return;
 	}
-	console.log(formData)
+	console.log(formData);
 	//AJAX post request
 	$.post('http://localhost:8080/tweets', formData)
 		.done((form) => {
@@ -68,25 +68,25 @@ const loadTweets = function(tweet) {
 		});
 };
 
-loadTweets()
+loadTweets();
 
 //function to throw an error if tweet has invalid input.
 const isTweetValid = function(tweet) {
 	if (tweet === "") {
-			$('.error-message').text('Tweet can not be blank');
-			$('.error-message').show()
-			return false;
+		$('.error-message').text('Tweet can not be blank');
+		$('.error-message').show();
+		return false;
 	}
 
 	if (tweet.length > 140) {
-			$('.error-message').text('Please keep your tweeting to under 140 characters!');
-			$('.error-message').show()
-			return false;
+		$('.error-message').text('Please keep your tweeting to under 140 characters!');
+		$('.error-message').show();
+		return false;
 	}
 
 	return true;
 };
 
 $('.tweet-text').on('keyup', function() {
-  $('.error-message').hide();
+	$('.error-message').hide();
 });

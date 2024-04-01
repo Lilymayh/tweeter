@@ -11,7 +11,7 @@ article {
 }
 
 p {
-	display: flex; 
+	display: flex;
 	width: 95%;
 	border-bottom: 3px solid #008ECC;
 	padding-bottom: 30px;
@@ -47,7 +47,7 @@ header span {
 	font-size: 70%;
 }
 
-.icons .fa-heart:hover{
+.icons .fa-heart:hover {
 	color: #f898b2;
 }
 
